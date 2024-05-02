@@ -26,9 +26,69 @@
 }
 
 body {
+  background-color: grey;
   background-image: url("../assets/images/pattern-bg-mobile.png");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+}
+
+.ip-tracker {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ip-tracker__title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+.ip-tracker__form {
+  display: flex;
+}
+.ip-tracker__input {
+  padding: 0.75rem 1rem;
+  flex-grow: 2;
+  border: none;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  cursor: pointer;
+}
+.ip-tracker__submit {
+  padding: 0.75rem;
+  border: none;
+  background-color: black;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.ip-tracker__submit img {
+  height: 0.75rem;
+}
+.ip-tracker__submit:hover {
+  background-color: #2b2b2b;
+}
+.ip-tracker__result {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.result-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result-group__label {
+  text-transform: uppercase;
+  color: #969696;
+  font-size: 0.5rem;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */
