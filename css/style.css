@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/fonts/Rubik-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/fonts/Rubik-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/fonts/Rubik-Bold.ttf");
+  font-weight: 700;
+}
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-image: url("../assets/images/pattern-bg-mobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=style.css.map */

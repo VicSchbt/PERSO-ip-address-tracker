@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="./css/style.css"
+		/>
+
+		<title>Frontend Mentor | IP Address Tracker</title>
+	</head>
+	<body>
+		<main class="ip-tracker">
+			<h1 class="ip-tracker__title">IP Address Tracker</h1>
+			<form class="ip-tracker__form">
+				<input
+					type="text"
+					id="ip-tracker__input"
+					aria-label="Enter an ip address"
+					placeholder="Search for any IP address or domain"
+				/>
+				<button
+					type="submit"
+					aria-label="Submit"
+				>
+					<img
+						src="./assets/images/icon-arrow.svg"
+						alt="arrow"
+					/>
+				</button>
+			</form>
+			<section class="ip-tracker__result">
+				<div class="ip-tracker__result result-group">
+					<h2 class="result-group__label">IP Address</h2>
+					<p
+						id="result__ip-address"
+						class="result-group__display"
+					></p>
+				</div>
+				<div class="ip-tracker__result result-group">
+					<h2 class="result-group__label">Location</h2>
+					<p
+						id="result__location"
+						class="result-group__display"
+					></p>
+				</div>
+				<div class="ip-tracker__result result-group">
+					<h2 class="result-group__label">Timezone</h2>
+					<p
+						id="result__utc"
+						class="result-group__display"
+					>
+						UTC
+						<!-- add offset value dynamically using the API -->
+					</p>
+				</div>
+				<div class="ip-tracker__result result-group">
+					<h2 class="result-group__label">ISP</h2>
+					<p
+						id="result__isp"
+						class="result-group__display"
+					></p>
+				</div>
+			</section>
+		</main>
+		<script src="app.js"></script>
+	</body>
+</html>
