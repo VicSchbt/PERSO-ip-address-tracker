@@ -20,9 +20,35 @@
 			href="./css/style.css"
 		/>
 
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""
+		/>
+
+		<script
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin=""
+		></script>
+
 		<title>Frontend Mentor | IP Address Tracker</title>
 	</head>
 	<body>
+		<div class="background">
+			<picture>
+				<source
+					srcset="./assets/images/pattern-bg-desktop.png"
+					media="(min-width: 450px)"
+				/>
+				<img
+					src="./assets/images/pattern-bg-mobile.png"
+					alt=""
+				/>
+			</picture>
+			<div id="map"></div>
+		</div>
 		<main class="ip-tracker">
 			<h1 class="ip-tracker__title">IP Address Tracker</h1>
 			<form class="ip-tracker__form">
@@ -46,31 +72,30 @@
 				</button>
 			</form>
 			<section class="ip-tracker__result">
-				<div class="ip-tracker__result result-group">
+				<div class="result-group">
 					<h2 class="result-group__label">IP Address</h2>
 					<p
 						id="result__ip-address"
 						class="result-group__display"
 					></p>
 				</div>
-				<div class="ip-tracker__result result-group">
+				<div class="result-group">
 					<h2 class="result-group__label">Location</h2>
 					<p
 						id="result__location"
 						class="result-group__display"
 					></p>
 				</div>
-				<div class="ip-tracker__result result-group">
+				<div class="result-group">
 					<h2 class="result-group__label">Timezone</h2>
 					<p
 						id="result__utc"
 						class="result-group__display"
 					>
-						UTC
 						<!-- add offset value dynamically using the API -->
 					</p>
 				</div>
-				<div class="ip-tracker__result result-group">
+				<div class="result-group">
 					<h2 class="result-group__label">ISP</h2>
 					<p
 						id="result__isp"
@@ -79,6 +104,10 @@
 				</div>
 			</section>
 		</main>
-		<script src="app.js"></script>
+		<script
+			src="app.js"
+			type="module"
+			defer
+		></script>
 	</body>
 </html>

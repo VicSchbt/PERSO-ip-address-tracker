@@ -1,4 +1,4 @@
-const API_KEY = process.env.API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const ipInput = document.querySelector('#ip-tracker__input');
 const ipSubmit = document.querySelector('#ip-tracker__submit');
@@ -7,6 +7,25 @@ const ipDisplay = document.querySelector('#result__ip-address');
 const locationDisplay = document.querySelector('#result__location');
 const utcDisplay = document.querySelector('#result__utc');
 const ispDisplay = document.querySelector('#result__isp');
+
+// INIT MAP
+
+const markerIcon = L.icon({
+	iconUrl: '/icon-location.svg',
+	iconSize: [46, 56],
+	iconAnchor: [23, 56],
+});
+
+const map = L.map('map', {
+	zoomControl: false,
+	attributionControl: false,
+}).setView([51.505, -0.09], 13);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+}).addTo(map);
+
+// GET IP INFOS
 
 const URL_API = 'https://geo.ipify.org/api/v2/country,city';
 
@@ -23,21 +42,36 @@ const updateDisplays = (ipAddress, location, timezone, isp) => {
 	ispDisplay.textContent = isp;
 };
 
+const updateMap = (lat, lng) => {
+	L.marker([lat, lng], { icon: markerIcon }).addTo(map);
+	map.panTo([lat, lng]);
+
+	const offset = map.getSize().y * 0.15;
+	map.panBy(new L.Point(0, -offset), { animate: false });
+};
+
+// UI LISTENER
+
 ipSubmit.addEventListener('click', async (event) => {
 	event.preventDefault();
 
 	const ipAddress = ipInput.value;
 	const data = await getIpInfos(API_KEY, ipAddress);
 
-	data &&
+	if (data) {
+		const {
+			ip,
+			location: { city, region, postalCode, timezone, lat, lng },
+			isp,
+		} = data;
+
 		updateDisplays(
-			data.ip,
-			data.location.city +
-				', ' +
-				data.location.region +
-				', ' +
-				data.location.postalCode,
-			'UTC ' + data.location.timezone,
-			data.isp
+			ip,
+			`${city}, ${region}, ${postalCode}`,
+			`UTC ${timezone}`,
+			isp
 		);
+
+		updateMap(lat, lng);
+	}
 });
