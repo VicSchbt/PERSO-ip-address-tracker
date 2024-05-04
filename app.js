@@ -1,3 +1,5 @@
+import markerUrl from './assets/images/icon-location.svg';
+
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const ipInput = document.querySelector('#ip-tracker__input');
@@ -11,7 +13,7 @@ const ispDisplay = document.querySelector('#result__isp');
 // INIT MAP
 
 const markerIcon = L.icon({
-	iconUrl: '/icon-location.svg',
+	iconUrl: markerUrl,
 	iconSize: [46, 56],
 	iconAnchor: [23, 56],
 });
